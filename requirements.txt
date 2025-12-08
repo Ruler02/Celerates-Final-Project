@@ -8,3 +8,4 @@ streamlit
 langchain-huggingface
 sentence-transformers
 langchain-google-genai
+matplotlib
