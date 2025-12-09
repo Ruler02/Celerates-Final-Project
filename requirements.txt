@@ -2,9 +2,9 @@ pypdf
 langchain
 langchain_community
 chromadb # Vector storage
+streamlit
 pytest
 boto3
-streamlit
 langchain-huggingface
 sentence-transformers
 langchain-google-genai
