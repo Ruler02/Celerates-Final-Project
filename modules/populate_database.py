@@ -10,7 +10,7 @@ from get_embedding_function import get_embedding_function
 from langchain_chroma import Chroma
 load_dotenv()
 
-CHROMA_PATH = "ck-6DEJFeP2LR8cAQYN6raUAqQzyfC6gRo31L7BVoxJaJzx"
+CHROMA_PATH = os.getenv("CHROMA_DB") 
 DATA_PATH = "C:\\Users\\Khai\\Downloads\\RAG-MultiDoc-Chatbot-main\\RAG-MultiDoc-Chatbot-main\\Knowledge"
 
 

@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
+import os
+from dotenv import load_dotenv
+load_dotenv()
 # Import dari modules
 from modules.model_loader import load_model, load_dataset
 from modules.services import query_rag
@@ -124,7 +127,7 @@ elif page == "💬 Chatbot":
             with st.spinner("⏳ Mencari informasi & menganalisis..."):
                 response, sources = query_rag(
                     query_text=prompt,
-                    chroma_path="data/chroma_db",
+                    chroma_path=os.getenv("CHROMA_DB"),
                     diagnosis=st.session_state.diagnosis,
                     benign_template=PROMPT_TEMPLATE_BENIGN,
                     malignant_template=PROMPT_TEMPLATE_MALIGNANT,
