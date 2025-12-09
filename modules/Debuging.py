@@ -1,13 +1,14 @@
 import streamlit as st
 import os
-from dotenv import load_dotenv
+
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 from get_embedding_function import get_embedding_function
 
-load_dotenv()
+GOOGLE_API_KEY = st.secrets["AIzaSyDPvbi1VECzygOIzy6QWE3zzv9JOTK-g4A"]
+CHROMA_PATH = st.secrets["ck-6DEJFeP2LR8cAQYN6raUAqQzyfC6gRo31L7BVoxJaJzx"]
 
 st.set_page_config(page_title="Chatbot RAG Debug", layout="wide")
 st.title("💬 Chatbot RAG dengan Chroma - DEBUG MODE")

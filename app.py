@@ -3,14 +3,19 @@ import pandas as pd
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
-from dotenv import load_dotenv
-load_dotenv()
 # Import dari modules
 from modules.model_loader import load_model, load_dataset
 from modules.services import query_rag
 from modules.ui_styles import set_background_image
 from modules.prompts import PROMPT_TEMPLATE_BENIGN, PROMPT_TEMPLATE_MALIGNANT
 from modules.get_embedding_function import get_embedding_function
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CHROMA_PATH = os.path.join(BASE_DIR, "..", "data", "chroma_db")
+DATA_PATH = os.path.join(BASE_DIR, "..", "data", "Knowledge")
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+CHROMA_PATH = os.path.join(SCRIPT_DIR, "data", "chroma_db")
 
 # Optional emoji icons
 CHAT_AVATAR_USER = "👤"
@@ -127,7 +132,7 @@ elif page == "💬 Chatbot":
             with st.spinner("⏳ Mencari informasi & menganalisis..."):
                 response, sources = query_rag(
                     query_text=prompt,
-                    chroma_path=os.getenv("CHROMA_DB"),
+                    chroma_path=CHROMA_PATH,
                     diagnosis=st.session_state.diagnosis,
                     benign_template=PROMPT_TEMPLATE_BENIGN,
                     malignant_template=PROMPT_TEMPLATE_MALIGNANT,

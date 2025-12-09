@@ -10,8 +10,14 @@ from get_embedding_function import get_embedding_function
 from langchain_chroma import Chroma
 load_dotenv()
 
-CHROMA_PATH = os.getenv("CHROMA_DB") 
-DATA_PATH = "C:\\Users\\Khai\\Downloads\\RAG-MultiDoc-Chatbot-main\\RAG-MultiDoc-Chatbot-main\\Knowledge"
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # lokasi folder modules
+DATA_PATH = os.path.join(BASE_DIR, "..", "Knowledge")
+CHROMA_PATH = os.path.join(BASE_DIR, "..", "chroma_db")
+
+DATA_PATH = os.path.abspath(DATA_PATH)
+CHROMA_PATH = os.path.abspath(CHROMA_PATH)
 
 
 def main():
