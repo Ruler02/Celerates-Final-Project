@@ -2,7 +2,6 @@
 langchain
 langchain_community
 chromadb # Vector storage
-boto3
 streamlit
 langchain-huggingface
 sentence-transformers
