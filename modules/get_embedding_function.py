@@ -1,10 +1,6 @@
-from langchain_huggingface import HuggingFaceInferenceAPIEmbeddings
-import os
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 
-def get_embedding_function(api_key):
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = api_key
-
-    return HuggingFaceInferenceAPIEmbeddings(
-        api_key=api_key,
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+def get_embedding_function():
+    return HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
     )
