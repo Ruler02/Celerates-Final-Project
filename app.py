@@ -49,16 +49,13 @@ if page == "🏠 Home":
 
     st.markdown("### 🔑 API Key Hugging Face (optional jika model private)")
 
-api_key_input = st.text_input(
-    "API Key:", type="password", value=st.session_state.api_key
-)
+    # Pastikan session_state sudah ada
+    if "api_key" not in st.session_state:
+        st.session_state.api_key = ""
 
-# === Initialize session state ===
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-if "api_key" not in st.session_state:
-    st.session_state.api_key = ""  # ← penting supaya st.text_input tidak error
+    api_key_input = st.text_input(
+        "API Key:", type="password", value=st.session_state.api_key
+    )
 
 def validate_key(key):
     try:
@@ -76,7 +73,6 @@ def validate_key(key):
     except Exception as e:
         print("Error saat validasi:", e)
         return False
-
 
 if st.button("Simpan API Key 🔐"):
     if not api_key_input:
