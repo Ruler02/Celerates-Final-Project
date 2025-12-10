@@ -143,7 +143,7 @@ elif page == "💬 Chatbot":
         do_sample=True,
         temperature=0.8,
         repetition_penalty=1.03,
-        huggingfacehub_api_token=st.session_state.api_key if "api_key" in st.session_state else None,
+        huggingfacehub_api_token=st.session_state.api_key
     )
 
     chat_hf = ChatHuggingFace(llm=model_hf, verbose=True)
@@ -158,7 +158,7 @@ elif page == "💬 Chatbot":
                 diagnosis=st.session_state.diagnosis,
                 benign_template=PROMPT_TEMPLATE_BENIGN,
                 malignant_template=PROMPT_TEMPLATE_MALIGNANT,
-                api_key=api_key_input if api_key_input else None,
+                api_key=st.session_state.api_key
             )
 
             # Generate jawaban tambahan via Hugging Face
