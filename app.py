@@ -126,14 +126,14 @@ elif page == "💬 Chatbot":
 
     prompt = st.chat_input("Tanyakan apapun mengenai hasil diagnosa Anda...")
 
-if prompt is not None and prompt.strip() != "":
+    if prompt is not None and prompt.strip() != "":
     # Simpan ke session
-    if "last_prompt" not in st.session_state or prompt != st.session_state.last_prompt:
-        st.session_state.last_prompt = prompt
+        if "last_prompt" not in st.session_state or prompt != st.session_state.last_prompt:
+         st.session_state.last_prompt = prompt
         st.session_state.messages.append(HumanMessage(content=prompt))
 
-    with st.chat_message("user", avatar=CHAT_AVATAR_USER):
-        st.markdown(prompt)
+        with st.chat_message("user", avatar=CHAT_AVATAR_USER):
+          st.markdown(prompt)
 
     # === HuggingFaceEndpoint Model ===
     model_hf = HuggingFaceEndpoint(
