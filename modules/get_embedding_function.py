@@ -17,5 +17,5 @@ def get_embedding_function(api_key=None):
         "trust_remote_code": True
     },
     encode_kwargs={"normalize_embeddings": True},
-
+    )
     return embedding
