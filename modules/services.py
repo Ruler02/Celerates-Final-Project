@@ -11,7 +11,7 @@ def query_rag(query_text, chroma_path, diagnosis, benign_template, malignant_tem
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = api_key
 
     # Ambil embedding function dengan api_key
-    embedding_function = get_embedding_function(api_key=api_key)
+    embedding_function = get_embedding_function(api_key)
     
     # Load vectorstore Chroma
     db = Chroma(persist_directory=chroma_path, embedding_function=embedding_function)
