@@ -14,6 +14,7 @@ def query_rag(query_text, chroma_path, diagnosis, benign_template, malignant_tem
 
     
     # Load vectorstore Chroma
+    embedding_function = get_embedding_function(api_keys)
     db = Chroma(persist_directory=chroma_path, embedding_function=embedding_function)
 
     # Cari dokumen paling relevan
