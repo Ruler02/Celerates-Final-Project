@@ -134,8 +134,6 @@ elif page == "💬 Chatbot":
 
         with st.chat_message("user", avatar=CHAT_AVATAR_USER):
           st.markdown(prompt)
-            
-    embedding_function = get_embedding_function(st.session_state.api_key)
     
     model_hf = HuggingFaceEndpoint(
         repo_id="deepseek-ai/DeepSeek-V3.2",  # ganti sesuai model yang ingin digunakan
