@@ -15,6 +15,7 @@ def get_embedding_function(api_key=None):
     model_kwargs={
         "device": "cpu",
         "trust_remote_code": True
+        "local_files_only": True  # penting agar tak meta tensor
     },
     encode_kwargs={"normalize_embeddings": True},
     )
