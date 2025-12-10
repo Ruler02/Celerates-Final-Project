@@ -13,6 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
+#klasifikasi database
 
 def klasifikasi_model(data_path="BreastCancer123.csv", save_path="best_model.pkl"):
 

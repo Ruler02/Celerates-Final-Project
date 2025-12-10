@@ -1,4 +1,4 @@
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from modules.get_embedding_function import get_embedding_function
