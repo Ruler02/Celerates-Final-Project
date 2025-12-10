@@ -56,7 +56,7 @@ if page == "🏠 Home":
 
     def validate_key(key):
         try:
-            test = ChatGoogleGenerativeAI( model="models/gemini-1.5-flash-latest", api_version="v1", api_key=key)
+            test = ChatGoogleGenerativeAI( model="gemini-2.0-flash", api_version="v1", api_key=key)
             _ = test.invoke("Halo, cek API Key!")
             return True
         except Exception:
