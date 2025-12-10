@@ -2,5 +2,5 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 
 def get_embedding_function(api_key=None):
     return HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-mpnet-base-v2"
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
