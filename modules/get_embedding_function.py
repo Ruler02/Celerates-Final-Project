@@ -9,13 +9,13 @@ def get_embedding_function(api_key=None):
 
     if api_key is not None:
         os.environ["HUGGINGFACEHUB_API_TOKEN"] = api_key
-
-    model_name = "sentence-transformers/all-MiniLM-L6-v2"
-
+    
     embedding = HuggingFaceEmbeddings(
-        model_name=model_name,
-        model_kwargs={"device": "cpu"},
-        encode_kwargs={"normalize_embeddings": True},
-    )
+    model_name="sentence-transformers/all-mpnet-base-v2",
+    model_kwargs={
+        "device": "cpu",
+        "trust_remote_code": True
+    },
+    encode_kwargs={"normalize_embeddings": True},
 
     return embedding
