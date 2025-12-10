@@ -18,7 +18,7 @@ def query_rag(query_text, chroma_path, diagnosis, benign_template, malignant_tem
     )
 
     llm_model = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash",
+        model="gemini-1.5-pro",
         api_key=api_key
     )
 

@@ -78,7 +78,7 @@ def query_rag(query_text: str):
         
         # Get response
         st.write("**[DEBUG] Mengirim ke LLM...**")
-        model = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+        model = ChatGoogleGenerativeAI( model="gemini-1.5-pro")
         response_text = model.invoke(prompt)
         
         # Extract sources
