@@ -3,6 +3,8 @@ import pandas as pd
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # Import dari modules
 from modules.model_loader import load_model, load_dataset
 from modules.services import query_rag
@@ -11,11 +13,7 @@ from modules.prompts import PROMPT_TEMPLATE_BENIGN, PROMPT_TEMPLATE_MALIGNANT
 from modules.get_embedding_function import get_embedding_function
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CHROMA_PATH = os.path.join(BASE_DIR, "..", "data", "chroma_db")
-DATA_PATH = os.path.join(BASE_DIR, "..", "data", "Knowledge")
-
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-CHROMA_PATH = os.path.join(SCRIPT_DIR, "data", "chroma_db")
+CHROMA_PATH = os.path.join(BASE_DIR, "data", "chroma_db")
 
 # Optional emoji icons
 CHAT_AVATAR_USER = "👤"
@@ -58,7 +56,7 @@ if page == "🏠 Home":
 
     def validate_key(key):
         try:
-            test = ChatGoogleGenerativeAI( model="models/gemini-1.5-flash-latest", api_key=key)
+            test = ChatGoogleGenerativeAI( model="models/gemini-1.5-flash-latest", api_version="v1", api_key=key)
             _ = test.invoke("Halo, cek API Key!")
             return True
         except Exception:
