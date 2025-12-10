@@ -119,38 +119,41 @@ elif page == "💬 Chatbot":
                              avatar=CHAT_AVATAR_USER if isinstance(msg, HumanMessage) else CHAT_AVATAR_AI):
             st.markdown(msg.content)
 
-    # Chat input
     prompt = st.chat_input("Tanyakan apapun mengenai hasil diagnosa Anda...")
 
-    if prompt:
-        st.session_state.messages.append(HumanMessage(prompt))
 
-        with st.chat_message("user", avatar=CHAT_AVATAR_USER):
-            st.markdown(prompt)
+    if prompt and "last_prompt" not in st.session_state or prompt != st.session_state.last_prompt:
+        st.session_state.last_prompt = prompt  # Simpan input terakhir
 
-        with st.chat_message("assistant", avatar=CHAT_AVATAR_AI):
-            with st.spinner("⏳ Mencari informasi & menganalisis..."):
-                response, sources = query_rag(
-                    query_text=prompt,
-                    chroma_path=CHROMA_PATH,
-                    diagnosis=st.session_state.diagnosis,
-                    benign_template=PROMPT_TEMPLATE_BENIGN,
-                    malignant_template=PROMPT_TEMPLATE_MALIGNANT,
-                    api_key=st.session_state.api_key,
-                )
+        st.session_state.messages.append(HumanMessage(content=prompt))
 
-            st.markdown(response)
+    with st.chat_message("user", avatar=CHAT_AVATAR_USER):
+        st.markdown(prompt)
 
-            # Show document sources
-            with st.expander("📚 Sumber Referensi"):
-                unique_sources = list({x for x in sources if x})
-                if unique_sources:
-                    for i, src in enumerate(unique_sources, 1):
-                        st.write(f"**{i}. {src}**")
-                else:
-                    st.info("Tidak ada sumber referensi ditemukan.")
+    # Proses query RAG hanya sekali
+    with st.chat_message("assistant", avatar=CHAT_AVATAR_AI):
+        with st.spinner("⏳ Mencari informasi & menganalisis..."):
+            response, sources = query_rag(
+                query_text=prompt,
+                chroma_path=CHROMA_PATH,
+                diagnosis=st.session_state.diagnosis,
+                benign_template=PROMPT_TEMPLATE_BENIGN,
+                malignant_template=PROMPT_TEMPLATE_MALIGNANT,
+                api_key=st.session_state.api_key,
+            )
 
-        st.session_state.messages.append(AIMessage(response))
+        st.markdown(response)
+
+        # Sumber referensi
+        with st.expander("📚 Sumber Referensi"):
+            unique_sources = list({x for x in sources if x})
+            if unique_sources:
+                for i, src in enumerate(unique_sources, 1):
+                    st.write(f"**{i}. {src}**")
+            else:
+                st.info("Tidak ada sumber referensi ditemukan.")
+
+    st.session_state.messages.append(AIMessage(content=response))
 
 
 # =====================
