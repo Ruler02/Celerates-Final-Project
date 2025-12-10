@@ -1,5 +1,5 @@
 from langchain_community.vectorstores import Chroma
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI  # 🔄 Diganti ke OpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from modules.get_embedding_function import get_embedding_function
 
@@ -17,11 +17,7 @@ def query_rag(query_text, chroma_path, diagnosis, benign_template, malignant_tem
         context=context_text, question=query_text
     )
 
-    llm_model = ChatGoogleGenerativeAI(
-        api_version="v1",
-        model="gemini-2.0-flash-lite",
-        api_key=api_key
-    )
+    llm_model = ChatOpenAI(model="gpt-4o-mini", api_key=api_key)
 
     response = llm_model.invoke(prompt)
     response_text = response.content if hasattr(response, "content") else str(response)

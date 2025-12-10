@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI  # 🔄 Diganti ke OpenAI
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -56,7 +56,7 @@ if page == "🏠 Home":
 
     def validate_key(key):
         try:
-            test = ChatGoogleGenerativeAI( model="gemini-2.0-flash-lite", api_version="v1", api_key=key)
+            test = ChatOpenAI(model="gpt-4o-mini", api_key=key)
             _ = test.invoke("Halo, cek API Key!")
             return True
         except Exception:
