@@ -8,7 +8,7 @@ def query_rag(query_text, chroma_path, diagnosis, benign_template, malignant_tem
     """
     Melakukan pencarian RAG dan generate jawaban menggunakan Hugging Face endpoint.
     """
-    embedding_function = get_embedding_function(api_key)
+
     
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = api_key
 
