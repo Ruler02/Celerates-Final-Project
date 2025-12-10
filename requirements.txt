@@ -12,7 +12,7 @@ google-api-core==2.28.1
 openai==1.52.2
 langchain-huggingface==0.1.1
 
-sentence-transformers==2.8.2
+sentence-transformers==3.3.0
 transformers==4.46.2
 huggingface-hub==0.26.2
 langchain-huggingface==0.1.1
