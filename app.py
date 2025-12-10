@@ -136,7 +136,7 @@ elif page == "💬 Chatbot":
           st.markdown(prompt)
             
     embedding_function = get_embedding_function(st.session_state.api_key)
-    # === HuggingFaceEndpoint Model ===
+    
     model_hf = HuggingFaceEndpoint(
         repo_id="deepseek-ai/DeepSeek-V3.2",  # ganti sesuai model yang ingin digunakan
         task="text-generation",
