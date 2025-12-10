@@ -143,7 +143,7 @@ elif page == "💬 Chatbot":
         do_sample=True,
         temperature=0.8,
         repetition_penalty=1.03,
-        huggingfacehub_api_token=api_key_input
+        huggingfacehub_api_token=st.session_state.api_key if "api_key" in st.session_state else None,
     )
 
     chat_hf = ChatHuggingFace(llm=model_hf, verbose=True)
