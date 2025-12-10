@@ -23,7 +23,7 @@ openai==1.52.2
 # Utilities
 python-dotenv==1.2.1
 pypdf==6.4.0
-tiktoken==0.3.0
+tiktoken==0.8.0
 
 # ML Stack
 numpy==2.3.5
