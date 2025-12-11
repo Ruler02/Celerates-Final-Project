@@ -108,6 +108,9 @@ elif page == "📊 Prediksi Kanker":
 # =========================
 # CHATBOT PAGE
 # =========================
+# =========================
+# CHATBOT PAGE
+# =========================
 elif page == "💬 Chatbot":
     set_background_image("assets/bg.jpeg")
     st.title("💬 Medical Assistant Chatbot")
@@ -124,8 +127,9 @@ elif page == "💬 Chatbot":
 
     prompt = st.chat_input("Tanyakan apapun mengenai hasil diagnosa Anda...")
 
+    # ✓ TAMBAHAN: Stop jika prompt kosong
     if prompt is None or prompt.strip() == "":
-    
+        st.stop()
 
     # Simpan ke session
     if "last_prompt" not in st.session_state or prompt != st.session_state.last_prompt:
@@ -134,9 +138,9 @@ elif page == "💬 Chatbot":
 
     with st.chat_message("user", avatar=CHAT_AVATAR_USER):
         st.markdown(prompt)
-    
+
     model_hf = HuggingFaceEndpoint(
-        repo_id="deepseek-ai/DeepSeek-V3.2",  # ganti sesuai model yang ingin digunakan
+        repo_id="deepseek-ai/DeepSeek-V3.2",
         task="text-generation",
         max_new_tokens=1000,
         do_sample=True,
