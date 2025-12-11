@@ -42,9 +42,9 @@ if "messages" not in st.session_state:
 # HOME PAGE
 # =========================
 if page == "🏠 Home":
-    set_background_image("assets/bg.jpeg")
+    set_background_image("assets/background.jpg")
     st.title("🎗️ AI Breast Cancer Assistant")
-    st.image("assets/header.jpg", use_column_width=True)
+    st.image("assets/cantcheerbot.png", use_column_width=True)
 
     st.markdown("### 🔑 API Key Hugging Face (optional jika model private)")
 
