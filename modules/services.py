@@ -17,10 +17,7 @@ def Query_RAG(query_text, chroma_path, diagnosis, benign_template, malignant_tem
     embedding_function = get_embedding_function()
     db = Chroma(persist_directory=chroma_path, embedding_function=embedding_function)
 
-    # ✓ FIX 1: Validasi query_text tidak kosong
-    if not query_text or query_text.strip() == "":
-        return "Mohon masukkan pertanyaan terlebih dahulu.
-
+    # ✓ FIX 1: Validasi query_text tidak koson
     # Cari dokumen paling relevan
     results = db.similarity_search_with_score(query_text, k=10)
     context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
