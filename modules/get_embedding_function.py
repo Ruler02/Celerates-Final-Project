@@ -1,9 +1,6 @@
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
-import streamlit as st
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 def get_embedding_function():
-    return HuggingFaceInferenceAPIEmbeddings(
-        api_key=st.secrets["HF_APIKEY"],
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        api_url="https://router.huggingface.co"
+    return HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
