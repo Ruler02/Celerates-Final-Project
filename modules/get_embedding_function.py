@@ -1,8 +1,8 @@
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+import streamlit as st
 
 def get_embedding_function():
-    return HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": "cpu"},
-        encode_kwargs={"normalize_embeddings": True},
+    return HuggingFaceInferenceAPIEmbeddings(
+        api_key=st.secrets["HF_APIKEY"],
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
