@@ -17,15 +17,6 @@ def Query_RAG(query_text, chroma_path, diagnosis, benign_template, malignant_tem
     embedding_function = get_embedding_function()
     db = Chroma(persist_directory=chroma_path, embedding_function=embedding_function)
         # ✓ PERBAIKAN: Filter dokumen yang page_content tidak None SEBELUM search
-    try:
-        all_results = db.similarity_search_with_score(query_text, k=10)
-        # Filter hanya dokumen yang page_content tidak None
-        results = [(doc, score) for doc, score in all_results if doc.page_content is not None]
-    except AttributeError:
-        return "Database kosong. Silakan upload dokumen terlebih dahulu.", []
-    
-    if not results:
-        return "Tidak ada dokumen yang relevan dengan pertanyaan Anda.", []
    
     # Cari dokumen paling relevan
     results = db.similarity_search_with_score(query_text, k=10)
