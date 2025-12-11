@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace  # 🔄 Diganti ke HuggingFace\
+from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
 from langchain_community.vectorstores import Chroma
 from modules.get_embedding_function import get_embedding_function
 import os
@@ -16,9 +16,9 @@ from modules.prompts import PROMPT_TEMPLATE_BENIGN, PROMPT_TEMPLATE_MALIGNANT
 from modules.get_embedding_function import get_embedding_function
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CHROMA_PATH = os.path.join(BASE_DIR, "chroma_db")  # ← ini yang benar
+CHROMA_PATH = os.path.join(BASE_DIR, "chroma_db") 
 
-# Optional emoji icons
+# Optional emoji icons  untuk avatar pada chatbot
 CHAT_AVATAR_USER = "👤"
 CHAT_AVATAR_AI = "🤖"
 
@@ -48,7 +48,7 @@ if page == "🏠 Home":
 
     st.markdown("### 🔑 API Key Hugging Face (optional jika model private)")
 
-    # Pastikan session_state sudah ada
+    # memastikan bahwa session_state sudah ada
     if "api_key" not in st.session_state:
         st.session_state.api_key = ""
 
@@ -119,7 +119,7 @@ elif page == "💬 Chatbot":
         st.warning("Silakan lakukan prediksi kanker terlebih dahulu.")
         st.stop()
 
-    # Display chat history
+    # melihat history chat
     for msg in st.session_state.messages:
         with st.chat_message("user" if isinstance(msg, HumanMessage) else "assistant",
                              avatar=CHAT_AVATAR_USER if isinstance(msg, HumanMessage) else CHAT_AVATAR_AI):
@@ -127,7 +127,7 @@ elif page == "💬 Chatbot":
 
     prompt = st.chat_input("Tanyakan apapun mengenai hasil diagnosa Anda...")
 
-    # ✓ TAMBAHAN: Stop jika prompt kosong
+   
     if prompt is None or prompt.strip() == "":
         st.stop()
 
@@ -151,7 +151,7 @@ elif page == "💬 Chatbot":
 
     chat_hf = ChatHuggingFace(llm=model_hf, verbose=True)
 
-    # Proses query RAG + text generation
+    
     with st.chat_message("assistant", avatar=CHAT_AVATAR_AI):
         with st.spinner("⏳ Mencari informasi & menganalisis..."):
             # Ambil jawaban RAG
@@ -164,7 +164,7 @@ elif page == "💬 Chatbot":
                 api_key=st.session_state.api_key
             )
 
-            # Generate jawaban tambahan via Hugging Face
+            # Generate jawaban  via Hugging Face
             response_hf = chat_hf.invoke([("system", "You are a helpful medical assistant."),
                                           ("human", response_rag)])
 
