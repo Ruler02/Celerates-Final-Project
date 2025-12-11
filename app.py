@@ -125,7 +125,7 @@ elif page == "💬 Chatbot":
     prompt = st.chat_input("Tanyakan apapun mengenai hasil diagnosa Anda...")
 
     if prompt is None or prompt.strip() == "":
-        st.stop()
+    
 
     # Simpan ke session
     if "last_prompt" not in st.session_state or prompt != st.session_state.last_prompt:
