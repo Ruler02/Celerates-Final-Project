@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace  # 🔄 Diganti ke HuggingFace\
-from modules.services import query_rag
+from modules.services import Query_RAG
 from langchain_community.vectorstores import Chroma
 from modules.get_embedding_function import get_embedding_function
 import os
@@ -151,7 +151,7 @@ elif page == "💬 Chatbot":
     with st.chat_message("assistant", avatar=CHAT_AVATAR_AI):
         with st.spinner("⏳ Mencari informasi & menganalisis..."):
             # Ambil jawaban RAG
-            response_rag, sources = query_rag(
+            response_rag, sources = Query_RAG(
                 query_text=prompt,
                 chroma_path=CHROMA_PATH,
                 diagnosis=st.session_state.diagnosis,
