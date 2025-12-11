@@ -67,28 +67,28 @@ Celerates-Final-Project/
 
 ## ⚙️ Instalasi
 
-  1. **Clone repository**
+1. **Clone repository**
   
-     ```bash
-     git clone https://github.com/Ruler02/Celerates-Final-Project.git
-     cd Celerates-Final-Project
+bash
+git clone https://github.com/Ruler02/Celerates-Final-Project.git
+cd Celerates-Final-Project
   
-  2. Buat environment Python
+2. Buat environment Python
   
-     python -m venv venv
-     source venv/bin/activate     # Linux / Mac
-     venv\Scripts\activate        # Windows
+python -m venv venv
+source venv/bin/activate     # Linux / Mac
+venv\Scripts\activate        # Windows
   
-  3. Instal dependensi
-     pip install -r requirements.txt
+3. Instal dependensi
+pip install -r requirements.txt
    
-  ##📂 Dataset
+##📂 Dataset
   
-  Proyek ini menggunakan dataset tabular dengan fitur tumor (misal: radius, tekstur, perimeter).
+Proyek ini menggunakan dataset tabular dengan fitur tumor (misal: radius, tekstur, perimeter).
   
-  👉 Dataset umum: Wisconsin Breast Cancer Dataset (CSV atau sklearn built-in).
-  📌 Tempatkan dataset di folder data/.
+👉 Dataset umum: Wisconsin Breast Cancer Dataset (CSV atau sklearn built-in).
+📌 Tempatkan dataset di folder data/.
 
-  ##🔄 Flowchart Sistem
+##🔄 Flowchart Sistem
   
   ![My Image](https://github.com/Ruler02/Celerates-Final-Project/blob/main/assets/flowwchart%20Database%20(1).png))
