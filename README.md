@@ -91,4 +91,4 @@ Celerates-Final-Project/
 
   ##🔄 Flowchart Sistem
   
-  ![My Image](https://github.com/Mercytopsy/RAG-MultiDoc-Chatbot/blob/main/Architectural%20Diagram.png)
+  ![My Image](assets/flowwchart Database (1).png)
