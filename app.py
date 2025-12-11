@@ -73,15 +73,15 @@ def validate_key(key):
         print("Error saat validasi:", e)
         return False
 
-if st.button("Simpan API Key 🔐"):
-    if not api_key_input:
-        st.error("API Key tidak boleh kosong!")
-    else:
-        if validate_key(api_key_input):
-            st.session_state.api_key = api_key_input
-            st.success("🎉 API Key valid & aktif digunakan!")
+    if st.button("Simpan API Key 🔐"):
+        if not api_key_input:
+            st.error("API Key tidak boleh kosong!")
         else:
-            st.error("❌ API Key tidak valid atau kuota habis!")
+            if validate_key(api_key_input):
+                st.session_state.api_key = api_key_input
+                st.success("🎉 API Key valid & aktif digunakan!")
+            else:
+                st.error("❌ API Key tidak valid atau kuota habis!")
 
 
 # =========================
