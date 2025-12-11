@@ -1,7 +1,7 @@
 # 🎗️ Celerates Final Project  
 **Klasifikasi Kanker Payudara & Asisten Chatbot AI**
 
-✨ _Solusi berbasis Python yang menggabungkan machine learning untuk deteksi kanker payudara dan chatbot AI untuk interaksi pengguna._
+✨ App berbasis Python yang menggabungkan machine learning untuk deteksi kanker payudara dan chatbot AI untuk interaksi pengguna._
 
 ---
 
@@ -20,7 +20,7 @@
 Repository ini berisi aplikasi AI dengan dua tujuan:
 
 💡 **1. Klasifikasi Kanker Payudara**  
-Model machine learning yang dilatih untuk mengklasifikasikan data tumor payudara (misalnya jinak vs ganas) menggunakan algoritma standar industri seperti Random Forest, SVM, atau XGBoost. Model menghasilkan prediksi dari fitur input.
+Model machine learning yang dilatih untuk mengklasifikasikan data tumor payudara (misalnya jinak vs ganas) menggunakan algoritma standar industri seperti Random Forest, KNN, atau Naive Bayes. Model menghasilkan prediksi dari fitur input.
 
 🗣️ **2. Asisten Chatbot AI**  
 Asisten cerdas yang dapat menjawab pertanyaan pengguna, menjelaskan prediksi, dan memberikan panduan terkait kanker payudara. Menggunakan pencarian vektor dan pipeline ala LangChain untuk konteks dokumen.
@@ -36,7 +36,6 @@ Asisten cerdas yang dapat menjawab pertanyaan pengguna, menjelaskan prediksi, da
 ✔️ Antarmuka web Python sederhana  
 ✔️ Kode modular untuk pengembangan mudah  
 ✔️ Model pretrained tersedia  
-✔️ Mendukung upload dokumen dan query (jika diimplementasikan)
 
 ---
 
@@ -89,3 +88,7 @@ Celerates-Final-Project/
   
   👉 Dataset umum: Wisconsin Breast Cancer Dataset (CSV atau sklearn built-in).
   📌 Tempatkan dataset di folder data/.
+
+  ##🔄 Flowchart Sistem
+  
+  ![Flowchart Klasifikasi](assets/flowchart_ml.png)
