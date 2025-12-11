@@ -4,7 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import os
 from modules.get_embedding_function import get_embedding_function
 
-def query_rag(query_text, chroma_path, diagnosis, benign_template, malignant_template, api_key):
+def Query_RAG(query_text, chroma_path, diagnosis, benign_template, malignant_template, api_key):
     """
     Melakukan pencarian RAG dan generate jawaban menggunakan Hugging Face endpoint.
     """
